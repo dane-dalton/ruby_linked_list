@@ -94,6 +94,15 @@ class LinkedList
     end
   end
 
+  def contains?(value)
+    temp = @head
+    until temp == nil
+      return true if temp.value == value
+      temp = temp.next_node
+    end
+    return false
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -113,5 +122,5 @@ puts "Head: #{my_list.head}"
 puts "Tail: #{my_list.tail}"
 puts "At index 2: #{my_list.at(2)}"
 puts "Popped: #{my_list.pop}"
-my_list.pop
+puts "Contains 2?: #{my_list.contains?(2)}"
 my_list.to_s
