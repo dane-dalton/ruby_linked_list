@@ -54,6 +54,21 @@ class LinkedList
     return @head.value
   end
 
+  def tail
+    if @head == nil
+      return nil
+    else
+      temp = @head
+      while true
+        if temp.next_node == nil
+          return temp.value
+        else
+          temp = temp.next_node
+        end
+      end
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -70,4 +85,5 @@ my_list.append(6)
 my_list.prepend(77)
 puts "Size: #{my_list.size}"
 puts "Head: #{my_list.head}"
+puts "Tail: #{my_list.tail}"
 my_list.to_s
