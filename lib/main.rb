@@ -50,6 +50,10 @@ class LinkedList
     end
   end
 
+  def head
+    return @head.value
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -64,5 +68,6 @@ my_list.append(8)
 my_list.append(2)
 my_list.append(6)
 my_list.prepend(77)
-puts my_list.size
+puts "Size: #{my_list.size}"
+puts "Head: #{my_list.head}"
 my_list.to_s
