@@ -80,6 +80,20 @@ class LinkedList
     return temp.value
   end
 
+  def pop
+    if @head == nil
+      return nil
+    else
+      temp = @head
+      until temp.next_node.next_node == nil
+          temp = temp.next_node
+      end
+      popped = temp.next_node.value
+      temp.next_node = nil
+      return popped
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -98,4 +112,6 @@ puts "Size: #{my_list.size}"
 puts "Head: #{my_list.head}"
 puts "Tail: #{my_list.tail}"
 puts "At index 2: #{my_list.at(2)}"
+puts "Popped: #{my_list.pop}"
+my_list.pop
 my_list.to_s
