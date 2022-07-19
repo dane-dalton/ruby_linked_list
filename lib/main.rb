@@ -69,6 +69,17 @@ class LinkedList
     end
   end
 
+  def at(index)
+    return nil if @head == nil
+    temp = @head
+    index.times do 
+      temp = temp.next_node
+      break if temp == nil
+    end
+    return nil if temp == nil
+    return temp.value
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -86,4 +97,5 @@ my_list.prepend(77)
 puts "Size: #{my_list.size}"
 puts "Head: #{my_list.head}"
 puts "Tail: #{my_list.tail}"
+puts "At index 2: #{my_list.at(2)}"
 my_list.to_s
