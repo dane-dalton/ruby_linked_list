@@ -36,6 +36,20 @@ class LinkedList
     end
   end
 
+  def size
+    if @head == nil
+      return 0
+    else
+      counter = 0
+      temp = @head
+      until temp == nil
+        counter += 1
+        temp = temp.next_node
+      end
+      return counter
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -50,4 +64,5 @@ my_list.append(8)
 my_list.append(2)
 my_list.append(6)
 my_list.prepend(77)
+puts my_list.size
 my_list.to_s
