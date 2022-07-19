@@ -26,6 +26,16 @@ class LinkedList
     end
   end
 
+  def prepend(value)
+    if @head == nil
+      @head = Node.new(value)
+    else
+      temp = @head
+      @head = Node.new(value)
+      @head.next_node = temp
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -39,4 +49,5 @@ my_list = LinkedList.new()
 my_list.append(8)
 my_list.append(2)
 my_list.append(6)
+my_list.prepend(77)
 my_list.to_s
