@@ -132,6 +132,23 @@ class LinkedList
     end
   end
 
+  def remove_at(index)
+    return nil if index <= self.size
+    counter = 0
+    prev = nil
+    curr = @head
+    if index == 0
+      @head = @head.next_node 
+    else
+      until counter >= index
+        prev = curr
+        curr = curr.next_node
+        counter += 1
+      end
+      prev.next_node = curr.next_node
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
@@ -143,12 +160,9 @@ class LinkedList
 end
 
 my_list = LinkedList.new()
-my_list.append(8)
-my_list.append(2)
-my_list.append(6)
-my_list.append(43)
-my_list.prepend(9)
-my_list.prepend(77)
+rand(100).times do
+  my_list.append(rand(100))
+end
 puts "Size: #{my_list.size}"
 puts "Head: #{my_list.head}"
 puts "Tail: #{my_list.tail}"
@@ -157,4 +171,5 @@ puts "Popped: #{my_list.pop}"
 puts "Contains 2?: #{my_list.contains?(2)}"
 puts "Find index of 6: #{my_list.find(6)}"
 my_list.insert_at(99, 2)
+my_list.remove_at(2)
 my_list.to_s
