@@ -114,12 +114,31 @@ class LinkedList
     return nil
   end
 
+  def insert_at(value, index)
+    counter = 0
+    prev = nil
+    curr = @head
+    until counter >= index
+      prev = curr
+      curr = curr.next_node
+      counter += 1
+    end
+    if index == 0
+      @head = Node.new(value)
+      @head.next_node = curr
+    else
+      prev.next_node = Node.new(value)
+      prev.next_node.next_node = curr
+    end
+  end
+
   def to_s
     temp = @head
     until temp == nil
-      puts "#{temp.value} => "
+      print "( #{temp.value} ) -> "
       temp = temp.next_node
     end
+    print " nil \n"
   end
 end
 
@@ -137,4 +156,5 @@ puts "At index 2: #{my_list.at(2)}"
 puts "Popped: #{my_list.pop}"
 puts "Contains 2?: #{my_list.contains?(2)}"
 puts "Find index of 6: #{my_list.find(6)}"
+my_list.insert_at(99, 2)
 my_list.to_s
